@@ -13,20 +13,25 @@
 </head>
 
 <body>
-    
-    <div id="page1" class="page fullscreen-bg">
-        
-        <div class="overlay">
-            <h1></h1>
+    <div class="scroll_wrap">
+        <div id="page1" class="page fullscreen-bg">
+            <video loop muted autoplay playsinline="true" class="fullscreen-bg__video">
+                <source src="mov/1.mp4" type="video/mp4">
+            </video>
+            <!-- <img src="./img/in.jpg" alt=""> -->
+            <div class="overlay">
+                <div class="header_text">2024 봄날,</div>
+                <div class="header_text">결혼합니다.</div>
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="hand-icon">
+                    👇
+                </div>
+                <p>Scroll down</p>
+            </div>
         </div>
 
-        <div class="scroll-indicator">
-            <div class="hand-icon">
-                👇
-            </div>
-            <p>Scroll down</p>
-        </div>
-    </div>
 
 
     <script src="./js/jquery-1.12.3.min.js"></script>

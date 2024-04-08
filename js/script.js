@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    typeWriter(1, "김도경과/손승일의/결혼식에/여러분을/초대합니다.", 0, 100, function () {
-        // Callback function after typing finished
-        $('#page1 > .scroll-indicator').fadeIn(200);
-    });
+    // typeWriter(1, "김도경과/손승일의/결혼식에/여러분을/초대합니다.", 0, 100, function () {
+    //     // Callback function after typing finished
+    //     $('#page1 > .scroll-indicator').fadeIn(200);
+    // });
 
     var mapOptions = {
         center: new naver.maps.LatLng(37.54220795057724, 126.95224350253976),
