@@ -14,15 +14,15 @@ document.addEventListener('DOMContentLoaded', function () {
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
     }
-    // var mapOptions = {
-    //     center: new naver.maps.LatLng(37.54220795057724, 126.95224350253976),
-    //     zoom: 16
-    // };
-    // var map = new naver.maps.Map('map', mapOptions);
-    // var marker = new naver.maps.Marker({
-    //     position: new naver.maps.LatLng(37.54220795057724, 126.95224350253976), // 마커의 위치
-    //     map: map
-    // });
+    var mapOptions = {
+        center: new naver.maps.LatLng(37.54220795057724, 126.95224350253976),
+        zoom: 16
+    };
+    var map = new naver.maps.Map('map', mapOptions);
+    var marker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.54220795057724, 126.95224350253976), // 마커의 위치
+        map: map
+    });
 
 
     $(window).on("scroll", function (e) {
