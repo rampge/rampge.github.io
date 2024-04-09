@@ -2,11 +2,7 @@
     font-family: 'NotoSerifKR';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff') format('woff');
 }
-.kr-light {
-  }
-  
-.kr-bold {
-}
+
 body,
 html {
     font-family: 'NotoSerifKR';
@@ -473,4 +469,8 @@ html {
 .overlay > .paragraph:nth-child(6){transition-delay: 4.0s;}
 .overlay > .paragraph:nth-child(7){transition-delay: 4.8s;}    
 .overlay > .paragraph:nth-child(8){transition-delay: 5.6s;}
+
+
+.overlay > .first{transition-delay: 0.8s !important;}
+.overlay > .second{transition-delay: 1.6s !important;}
 
