@@ -7,10 +7,6 @@ var scroll_wrap = $('.scroll_wrap')
 var contentsHeight = 0;
 var pageCheck = [false, false, false, false, false, false]
 
-// $('.main_video').on('loadeddata', function() {
-//     $('.first').addClass('visible');
-//     $('.second').addClass('visible');
-// });
 document.addEventListener('DOMContentLoaded', function () {
     $('.first').addClass('visible');
     $('.second').addClass('visible');
@@ -18,19 +14,18 @@ document.addEventListener('DOMContentLoaded', function () {
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
     }
-    var mapOptions = {
-        center: new naver.maps.LatLng(37.54220795057724, 126.95224350253976),
-        zoom: 16
-    };
-    var map = new naver.maps.Map('map', mapOptions);
-    var marker = new naver.maps.Marker({
-        position: new naver.maps.LatLng(37.54220795057724, 126.95224350253976), // 마커의 위치
-        map: map
-    });
+    // var mapOptions = {
+    //     center: new naver.maps.LatLng(37.54220795057724, 126.95224350253976),
+    //     zoom: 16
+    // };
+    // var map = new naver.maps.Map('map', mapOptions);
+    // var marker = new naver.maps.Marker({
+    //     position: new naver.maps.LatLng(37.54220795057724, 126.95224350253976), // 마커의 위치
+    //     map: map
+    // });
 
 
     $(window).on("scroll", function (e) {
-        console.log('elementPos')
         $('.page').each(function () {
             var tmpdepth = 100;
 
@@ -38,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
             var topOfWindow = $(window).scrollTop();
             var bottomOfWindow = $(window).scrollTop() + $(window).height();
 
-            // if (elementPos + tmpdepth < bottomOfWindow && elementPos - tmpdepth > topOfWindow) {
             if (elementPos + tmpdepth < bottomOfWindow) {
                 $(this).find(".overlay > .paragraph").addClass('visible');
             }
