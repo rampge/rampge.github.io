@@ -5,6 +5,7 @@ var page = 1;
 var total_page = 6;
 var scroll_wrap = $('.scroll_wrap')
 var contentsHeight = 0;
+var gallery_check = false;
 var pageCheck = [false, false, false, false, false, false]
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     $(window).on("scroll", function (e) {
         $('.page').each(function () {
-            var tmpdepth = 100;
+            var tmpdepth = 150;
 
             var elementPos = $(this).offset().top;
             var topOfWindow = $(window).scrollTop();
@@ -35,8 +36,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (elementPos + tmpdepth < bottomOfWindow) {
                 $(this).find(".overlay > .paragraph").addClass('visible');
+
+                if ($("#page3 > .overlay > .paragraph:eq(4)").hasClass("visible")) {
+                    if (!gallery_check) {
+                        setTimeout(function () {
+                            gallery_check = true;
+                            $('.gallery').slick("slickPlay")
+                        }, 3200)
+                    }
+                }
             }
+
         });
+
+
     });
 
     $('.account_open').on('click', function () {
@@ -56,5 +69,17 @@ document.addEventListener('DOMContentLoaded', function () {
         window.navigator.clipboard.writeText(temp_account).then(() => {
             alert("클립보드에 저장 되었습니다.")
         });
+    })
+
+
+    $('.gallery').slick({
+        slidesToShow: 1,
+        // autoplay: true,
+        autoplaySpeed: 2000,
+        dots: true,
+    });
+
+    $('.gallery').on("swipe", function () {
+        $('.gallery').slick('slickPause');
     })
 });
