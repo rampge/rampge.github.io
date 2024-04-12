@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         setTimeout(function () {
                             gallery_check = true;
                             $('.gallery').slick("slickPlay")
-                        }, 3200)
+                        }, 2500)
                     }
                 }
             }
