@@ -37,12 +37,12 @@ document.addEventListener('DOMContentLoaded', function () {
             if (elementPos + tmpdepth < bottomOfWindow) {
                 $(this).find(".overlay > .paragraph").addClass('visible');
 
-                if ($("#page3 > .overlay > .paragraph:eq(2)").hasClass("visible")) {
+                if ($("#page3 > .overlay > .paragraph:eq(4)").hasClass("visible")) {
                     if (!gallery_check) {
                         setTimeout(function () {
                             gallery_check = true;
                             $('.gallery').slick("slickPlay")
-                        }, 2500)
+                        }, 2800)
                     }
                 }
             }
