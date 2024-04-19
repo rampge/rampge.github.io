@@ -6,15 +6,31 @@ var total_page = 6;
 var scroll_wrap = $('.scroll_wrap')
 var contentsHeight = 0;
 var gallery_check = false;
+var pop_hidden = false;
+var scroll_down_bol = false;
 var pageCheck = [false, false, false, false, false, false]
 
 document.addEventListener('DOMContentLoaded', function () {
     $('.first').addClass('visible');
     $('.second').addClass('visible');
-    contentsHeight = window.innerHeight;
-    window.onbeforeunload = function () {
-        window.scrollTo(0, 0);
-    }
+    $('.third').addClass('visible');
+    $('.video_wrap').addClass('visible');
+    
+    var video_play = setTimeout(function () {
+        $('.main_video').get(0).play();
+    }, 2200)
+
+    var scroll_down = setTimeout(function () {
+        $('html, body').animate({
+            scrollTop: 150
+        }, 600);
+        scroll_down_bol = true;
+        // $('.popup').addClass('toggle')
+    }, 5000)
+    var scroll_pop = setTimeout(function () {
+        $('.popup').addClass('toggle')
+        pop_hidden = true;
+    }, 10000)
     var mapOptions = {
         center: new naver.maps.LatLng(37.54220795057724, 126.95224350253976),
         zoom: 16
@@ -24,9 +40,28 @@ document.addEventListener('DOMContentLoaded', function () {
         position: new naver.maps.LatLng(37.54220795057724, 126.95224350253976), // 마커의 위치
         map: map
     });
-
-
+    $(window).on('wheel', function (event) {
+        clearTimeout(scroll_pop)
+        if($('.popup').hasClass('toggle')){
+            $('.popup').removeClass("toggle")
+            $('.popup').addClass("hide")
+        }
+    });
+    $(window).on('touchstart', function (event) {
+        touchStartY = event.originalEvent.touches[0].clientY;
+    });
+    $(window).on('touchmove', function (event) {
+        touchMoveY = event.originalEvent.touches[0].clientY;
+        if (touchStartY > touchMoveY) {
+            clearTimeout(scroll_pop)
+            if($('.popup').hasClass('toggle')){
+                $('.popup').removeClass("toggle")
+                $('.popup').addClass("hide")
+            }
+        }
+    });
     $(window).on("scroll", function (e) {
+        clearTimeout(scroll_down)
         $('.page').each(function () {
             var tmpdepth = 150;
 
